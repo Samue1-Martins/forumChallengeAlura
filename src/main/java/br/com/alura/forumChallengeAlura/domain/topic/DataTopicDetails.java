@@ -9,15 +9,17 @@ public record DataTopicDetails(
          Date createdAt,
          String status,
          String author,
-         String response
+         String response,
+         CourseEnum courseEnum
 ) {
     public DataTopicDetails(TopicClass topic){
     this(topic.getId(),
             topic.getTitle(),
-            topic.getAuthor(),
-            topic.getCreatedAt(),
-            topic.getAuthor(),
             topic.getMessage(),
-            topic.getResponse());
+            topic.getCreatedAt(),
+            topic.getStatus(),
+            topic.getAuthor(),
+            topic.getResponse(),
+            topic.getCourse());
     }
 }
