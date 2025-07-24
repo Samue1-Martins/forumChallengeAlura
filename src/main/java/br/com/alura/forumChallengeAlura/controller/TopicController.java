@@ -4,6 +4,9 @@ import br.com.alura.forumChallengeAlura.domain.topic.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -33,5 +36,11 @@ public class TopicController {
         var page = repository.findAll();
         return ResponseEntity.ok(page);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity detailTopicWithId(@PathVariable Long id){
+        var topic = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DataTopicDetails(topic));
+    }
+
 
 }
