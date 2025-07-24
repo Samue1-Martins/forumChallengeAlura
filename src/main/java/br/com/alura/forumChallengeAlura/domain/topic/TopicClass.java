@@ -1,17 +1,13 @@
 package br.com.alura.forumChallengeAlura.domain.topic;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import java.util.Date;
 
 @Table(name = "topics")
 @Entity(name = "Topic")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

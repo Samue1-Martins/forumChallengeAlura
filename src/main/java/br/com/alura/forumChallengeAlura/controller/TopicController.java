@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Calendar;
 import java.util.List;
 
 @RestController
@@ -21,6 +22,7 @@ public class TopicController {
     @Transactional
     public ResponseEntity createTopic(@RequestBody @Valid CreateTopic data, UriComponentsBuilder uriBuilder){
         var topic = new TopicClass(data);
+        topic.setCreatedAt(Calendar.getInstance().getTime());
         repository.save(topic);
         var uri = uriBuilder.path("/topics/{id}").buildAndExpand(topic.getId()).toUri();
         return ResponseEntity.created(uri).body(new DataTopicDetails(topic));
