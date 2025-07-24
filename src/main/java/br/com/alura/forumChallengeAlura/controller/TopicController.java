@@ -36,11 +36,18 @@ public class TopicController {
         var page = repository.findAll();
         return ResponseEntity.ok(page);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity detailTopicWithId(@PathVariable Long id){
         var topic = repository.getReferenceById(id);
         return ResponseEntity.ok(new DataTopicDetails(topic));
     }
 
-
+    @PutMapping
+    @Transactional
+    public ResponseEntity updateTopic(@RequestBody @Valid DataUpdateTopic data){
+        var topic = repository.getReferenceById(data.id());
+        topic.updateTopics(data);
+        return ResponseEntity.ok(new DataTopicDetails(topic));
+    }
 }
