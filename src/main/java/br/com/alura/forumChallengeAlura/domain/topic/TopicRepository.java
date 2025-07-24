@@ -1,4 +1,6 @@
 package br.com.alura.forumChallengeAlura.domain.topic;
 
-public class TopicRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TopicRepository extends JpaRepository<TopicClass, Long> {
 }
