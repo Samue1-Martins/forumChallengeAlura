@@ -1,4 +1,12 @@
 package br.com.alura.forumChallengeAlura.domain.topic;
 
-public record DataUpdateTopic() {
+import jakarta.validation.constraints.NotNull;
+
+public record DataUpdateTopic(
+        @NotNull
+        Long id,
+        String message,
+        String response,
+        String status
+) {
 }

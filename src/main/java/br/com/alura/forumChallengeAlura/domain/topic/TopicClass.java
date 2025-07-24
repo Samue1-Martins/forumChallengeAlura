@@ -35,4 +35,16 @@ public class TopicClass {
         this.response = data.response();
         this.course = data.course();
     }
+
+    public void updateTopics(DataUpdateTopic data){
+        if (data.message() != null){
+            this.message = data.message();
+        }
+        if (data.response() != null){
+            this.response = data.response();
+        }
+        if (data.status() != null){
+            this.status = data.status();
+        }
+    }
 }
