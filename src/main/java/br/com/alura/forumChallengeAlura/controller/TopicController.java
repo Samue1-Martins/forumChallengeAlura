@@ -4,9 +4,6 @@ import br.com.alura.forumChallengeAlura.domain.topic.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -49,5 +46,13 @@ public class TopicController {
         var topic = repository.getReferenceById(data.id());
         topic.updateTopics(data);
         return ResponseEntity.ok(new DataTopicDetails(topic));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteTopic(@PathVariable Long id){
+        var topic = repository;
+        topic.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
