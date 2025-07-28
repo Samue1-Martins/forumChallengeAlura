@@ -1,7 +1,9 @@
 package br.com.alura.forumChallengeAlura.domain.topic;
 
+import br.com.alura.forumChallengeAlura.domain.users.UsersClass;
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.Date;
 
 @Table(name = "topics")
@@ -22,6 +24,9 @@ public class TopicClass {
     private String status;
     private String author;
     private String response;
+
+    @ManyToOne
+    private UsersClass id_author;
 
     @Enumerated(EnumType.STRING)
     private CourseEnum course;
