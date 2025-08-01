@@ -1,6 +1,7 @@
 package br.com.alura.forumChallengeAlura.domain.users;
 
 import br.com.alura.forumChallengeAlura.domain.topic.TopicClass;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -24,12 +25,18 @@ public class UsersClass {
     private String name;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "id_author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<TopicClass> topicsList = new ArrayList<>();
+    @JsonManagedReference
+    @OneToMany(mappedBy = "authorUser", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<TopicClass> topics = new ArrayList<>();
 
     public UsersClass(@Valid CreateUsers data) {
         this.name = data.name();
         this.email = data.email();
         this.password = data.password();
+    }
+
+    public void addTopic(TopicClass topic){
+        this.topics.add(topic);
+        topic.setAuthorUser(this);
     }
 }

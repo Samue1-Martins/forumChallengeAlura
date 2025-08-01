@@ -8,7 +8,6 @@ public record DataTopicDetails(
          String message,
          Date createdAt,
          String status,
-         String author,
          String response,
          CourseEnum courseEnum
 ) {
@@ -18,7 +17,6 @@ public record DataTopicDetails(
             topic.getMessage(),
             topic.getCreatedAt(),
             topic.getStatus(),
-            topic.getAuthor(),
             topic.getResponse(),
             topic.getCourse());
     }

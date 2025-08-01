@@ -14,11 +14,11 @@ public record CreateTopic(
         @NotBlank
         String status,
         @NotBlank
-        String author,
-        @NotBlank
         String response,
         @NotNull
-        CourseEnum course
+        CourseEnum course,
+        @NotNull
+        Long userId
         ) {
 
 }
