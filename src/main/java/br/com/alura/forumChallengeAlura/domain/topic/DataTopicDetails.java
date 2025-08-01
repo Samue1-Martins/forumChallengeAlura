@@ -4,6 +4,7 @@ import java.util.Date;
 
 public record DataTopicDetails(
          Long id,
+         String name,
          String title,
          String message,
          Date createdAt,
@@ -13,6 +14,7 @@ public record DataTopicDetails(
 ) {
     public DataTopicDetails(TopicClass topic){
     this(topic.getId(),
+            topic.getAuthorUser().getName(),
             topic.getTitle(),
             topic.getMessage(),
             topic.getCreatedAt(),

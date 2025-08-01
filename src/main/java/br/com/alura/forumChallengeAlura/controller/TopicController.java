@@ -36,8 +36,12 @@ public class TopicController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TopicClass>> list(){
-        var page = topicRepository.findAll();
+    public ResponseEntity<List<DataTopicDetails>> list(){
+            var page = topicRepository
+                    .findAll()
+                    .stream()
+                    .map(DataTopicDetails::new)
+                    .toList();
         return ResponseEntity.ok(page);
     }
 

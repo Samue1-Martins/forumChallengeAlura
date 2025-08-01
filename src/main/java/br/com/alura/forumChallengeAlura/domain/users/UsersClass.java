@@ -35,6 +35,15 @@ public class UsersClass {
         this.password = data.password();
     }
 
+    public void updateUser(DataUpdateUser data){
+        if (data.name() != null){
+            this.name = data.name();
+        }
+        if (data.password() != null){
+            this.password = data.password();
+        }
+    }
+
     public void addTopic(TopicClass topic){
         this.topics.add(topic);
         topic.setAuthorUser(this);
