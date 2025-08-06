@@ -19,6 +19,7 @@ public class UserController {
     UserRepository repository;
 
     @PostMapping
+    @RequestMapping("/create")
     @Transactional
     public ResponseEntity createUser(@RequestBody @Valid CreateUsers data, UriComponentsBuilder uriBuilder){
         var user = new UsersClass(data);
