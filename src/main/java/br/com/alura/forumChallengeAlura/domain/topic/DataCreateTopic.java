@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.Date;
 
-public record CreateTopic(
+public record DataCreateTopic(
         @NotBlank
         String title,
         @NotBlank

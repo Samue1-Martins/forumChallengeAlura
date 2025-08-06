@@ -1,5 +1,7 @@
 package br.com.alura.forumChallengeAlura.domain.topic;
 
+import br.com.alura.forumChallengeAlura.domain.users.UsersClass;
+
 import java.util.Date;
 
 public record DataTopicDetails(
@@ -22,4 +24,5 @@ public record DataTopicDetails(
             topic.getResponse(),
             topic.getCourse());
     }
+
 }
