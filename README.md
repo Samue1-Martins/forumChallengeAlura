@@ -2,13 +2,13 @@
 
 Introdução ao Projeto: API de Cadastro de Usuários e Criação de topicos.<br><br>
 
-## Visão Geral <br>
+## Visão Geral 📖 <br>
 
 Projeto desenvolvido para a conclusão do curso de Java e SpringBoot idezalizado por Alura e o programa Oracle One. <br>
 A API conta com um sistema de CRUD para criação e gerenciamento de usuários e topicos. <br>
 Para a criação de novos tópicos, o usuário precisa estar cadastrado e autenticado, informando um token fornecido pela API stateless.
 
-## Tecnologias utilizadas
+## Tecnologias utilizadas 🚀
 
   - Java 21
   - SpringBoot 3.5.4
@@ -23,14 +23,14 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - MySQL Driver
   - MySQL 
 
-## Funcionalidades
+## Funcionalidades 🤖
 
   - Cadastro de usuários/tópicos
   - Atualização de usuários/tópicos
   - Listagem de usuários/tópicos
   - Deletar usuários/tópicos
 
-## Inicializando o projeto
+## Inicializando o projeto ⛷️
 
   - Baixe o clone do repositório(https://github.com/Samue1-Martins/forumChallengeAlura.git)<br>
   - Baixe as dependências do mavem
@@ -38,7 +38,7 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - Configure o "application.properties" com o endereço, usuário e senha do seu banco de dados
   - O porjeto rodará em "http://localhost:8080/"
 
-## Endpoints
+## Endpoints 💻
 
   - /hello
   - /login
@@ -48,7 +48,7 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - /topic
   - /topic/{"id"}
 
-## Jsons usuários/tópicos
+## Jsons usuários/tópicos 📕
   
   ### Criar usuário método: POST
   
@@ -117,7 +117,7 @@ Todos os campos são obrigatórios
 ```bash
   {
     "id": 1, // <- Campo Obrigatorio
-    "name": Felipe candito, // <- Campo opcional
+    "name": "Felipe candito", // <- Campo opcional
     "password": "87654321" // <- Campo opcional
   }
 
