@@ -1,8 +1,8 @@
-# Forum 👨🏾‍💻
+# Forum 👨🏾‍💻 <br>
 
 Introdução ao Projeto: API de Cadastro de Usuários e Criação de topicos.<br><br>
 
-Visão Geral <br><br>
+## Visão Geral <br>
 
 Projeto desenvolvido para a conclusão do curso de Java e SpringBoot idezalizado por Alura e o programa Oracle One. <br>
 A API conta com um sistema de CRUD para criação e gerenciamento de usuários e topicos. <br>
@@ -17,7 +17,7 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - Bean Validation
   - Spring Web
   - Flyway
-  - Lombk
+  - Lombok
   - Java JWT 4.5.0
   - Spring Dev Tools
   - MySQL Driver
