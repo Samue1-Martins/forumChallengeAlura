@@ -3,8 +3,6 @@ package br.com.alura.forumChallengeAlura.domain.topic;
 import br.com.alura.forumChallengeAlura.domain.users.UsersClass;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.Date;
@@ -35,7 +33,7 @@ public class TopicClass {
     @Enumerated(EnumType.STRING)
     private CourseEnum course;
 
-    public TopicClass(CreateTopic data, UsersClass authorUser) {
+    public TopicClass(DataCreateTopic data, UsersClass authorUser) {
         this.title = data.title();
         this.message = data.message();
         this.createdAt = data.createdAt();
