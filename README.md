@@ -21,6 +21,7 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - Java JWT 4.5.0
   - Spring Dev Tools
   - MySQL Driver
+  - MySQL 
 
 ## Funcionalidades
 
@@ -28,6 +29,14 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - Atualização de usuários/tópicos
   - Listagem de usuários/tópicos
   - Deletar usuários/tópicos
+
+## Inicializando o projeto
+
+  - Baixe o clone do repositório(https://github.com/Samue1-Martins/forumChallengeAlura.git)<br>
+  - Baixe as dependências do mavem
+  - Crie um banco de dados no Workbench MySQL
+  - Configure o "application.properties" com o endereço, usuário e senha do seu banco de dados
+  - O porjeto rodará em "http://localhost:8080/"
 
 ## Endpoints
 
