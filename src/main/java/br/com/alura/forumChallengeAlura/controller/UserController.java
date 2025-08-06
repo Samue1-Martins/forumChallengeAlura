@@ -9,54 +9,43 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("users")
 public class UserController {
 
     @Autowired
-    UserRepository repository;
+    private UserService userService;
 
     @PostMapping
     @RequestMapping("/create")
-    @Transactional
-    public ResponseEntity createUser(@RequestBody @Valid CreateUsers data, UriComponentsBuilder uriBuilder){
-        var user = new UsersClass(data);
-        repository.save(user);
-        var uri = uriBuilder.path("/users/{id}").buildAndExpand(user.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DataUserDetails(user));
+    public ResponseEntity createUser(@RequestBody @Valid DataCreateUsers data, UriComponentsBuilder uriBuilder){
+        UsersClass registeredUser = userService.registerUser(data);
+        var uri = uriBuilder.path("/users/{id}").buildAndExpand(registeredUser.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DataUserDetails(registeredUser));
     }
 
     @GetMapping
-    public ResponseEntity<List<DataUserDetails>> listUsers(){
-        var page = repository
-                .findAll()
-                .stream()
-                .map(DataUserDetails::new)
-                .toList();
-        return ResponseEntity.ok(page);
+    public ResponseEntity listUsers(){
+        var listUser = userService.listAllUser();
+        return ResponseEntity.ok(listUser);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity details(@PathVariable Long id) {
-        var user = repository.getReferenceById(id);
-        return ResponseEntity.ok(new DataUserTopicsDetails(user));
+    public ResponseEntity detailUserId(@PathVariable Long id) {
+        var detailsUserId = userService.detailUserId(id);
+        return ResponseEntity.ok(detailsUserId);
     }
 
     @PutMapping
-    @Transactional
     public ResponseEntity updateTopic(@RequestBody @Valid DataUpdateUser data){
-        var user = repository.getReferenceById(data.id());
-        user.updateUser(data);
-        return ResponseEntity.ok(new DataUserDetails(user));
+        UsersClass updateUser = userService.updateUser(data.id(), data);
+        return ResponseEntity.ok(new DataUserDetails(updateUser));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity deleteUser(@PathVariable Long id){
-        var user = repository;
-        user.deleteById(id);
+    public ResponseEntity  deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
 }
