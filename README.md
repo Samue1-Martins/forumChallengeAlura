@@ -36,7 +36,7 @@ Para a criação de novos tópicos, o usuário precisa estar cadastrado e autent
   - Baixe as dependências do mavem
   - Crie um banco de dados no Workbench MySQL
   - Configure o "application.properties" com o endereço, usuário e senha do seu banco de dados
-  - O porjeto rodará em "http://localhost:8080/"
+  - O projeto rodará em "http://localhost:8080/"
 
 ## Endpoints 💻
 
